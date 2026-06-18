@@ -217,6 +217,14 @@ function Band({
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+
+      if (!dragged) {
+        const t = state.clock.elapsedTime;
+        const swing = Math.sin(t * 0.5) * 0.6;
+        const vel = j1.current.linvel();
+        j1.current.wakeUp();
+        j1.current.setLinvel({ x: swing, y: vel.y, z: 0 }, true);
+      }
     }
   });
 

@@ -7,9 +7,9 @@ import AboutRole from "./AboutRole";
 
 export default function About() {
   return (
-    <section id="about" className="px-6 py-20">
+    <section id="about" className="px-6 py-20 border-b border-black/10">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-xl font-bold text-[#1a1a1a] mb-10">About Me</h2>
+        <h2 className="text-xl font-extrabold text-[#1a1a1a] mb-8">About Me</h2>
 
         <div className="flex flex-col lg:flex-row items-start gap-16">
 
