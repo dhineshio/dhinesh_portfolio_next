@@ -96,6 +96,10 @@ body {
   background-size: cover;
 }
 
+@keyframes border-spin {
+  to { transform: rotate(360deg); }
+}
+
 .marquee-track {
   display: flex;
   flex-direction: row;

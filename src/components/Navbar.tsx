@@ -2,21 +2,56 @@
 
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const navLinks = [
-  { label: "Home", href: "/", active: true },
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
+const NAVBAR_HEIGHT = 64;
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const menuRef = useRef<HTMLDivElement>(null);
-const toggleMenu = () => {
+
+  useEffect(() => {
+    const sectionIds = navLinks.map(l => l.href.replace("#", ""));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: `-${NAVBAR_HEIGHT}px 0px -60% 0px`, threshold: 0 }
+    );
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = (href: string) => {
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (!el) return;
+    gsap.to(window, {
+      scrollTo: { y: el, offsetY: NAVBAR_HEIGHT },
+      duration: 0.9,
+      ease: "power3.inOut",
+    });
+  };
+
+  const toggleMenu = () => {
     const menu = menuRef.current;
     if (!menu) return;
 
@@ -43,6 +78,20 @@ const toggleMenu = () => {
     }
   };
 
+  const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    gsap.to(menuRef.current, {
+      height: 0,
+      opacity: 0,
+      duration: 0.25,
+      ease: "power3.in",
+      onComplete: () => {
+        setOpen(false);
+        scrollTo(href);
+      },
+    });
+  };
+
   return (
     <nav className="fixed inset-x-0 top-0 z-[1000] w-full bg-white/80 backdrop-blur-[5px] shadow-[0_1px_1px_#e7e7e9] 2xl:pt-[10px]">
 
@@ -56,6 +105,7 @@ const toggleMenu = () => {
 
         <a
           href="#contact"
+          onClick={e => { e.preventDefault(); scrollTo("#contact"); }}
           className="ml-auto inline-flex items-center justify-center h-9 px-4 rounded-full border border-black/20 text-sm font-medium text-black hover:bg-black/5 transition-colors"
         >
           Hire Me
@@ -72,17 +122,9 @@ const toggleMenu = () => {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => {
-                gsap.to(menuRef.current, {
-                  height: 0,
-                  opacity: 0,
-                  duration: 0.25,
-                  ease: "power3.in",
-                  onComplete: () => setOpen(false),
-                });
-              }}
+              onClick={e => handleMobileClick(e, link.href)}
               className={`text-sm font-medium py-3 border-b border-black/5 last:border-0 transition-colors ${
-                link.active ? "text-black" : "text-gray-500 hover:text-black"
+                activeSection === link.href.replace("#", "") ? "text-black" : "text-gray-500 hover:text-black"
               }`}
             >
               {link.label}
@@ -97,31 +139,30 @@ const toggleMenu = () => {
         <Image src="/logo.png" alt="Logo" width={36} height={36} />
 
         <div className="flex items-end gap-10 h-full ml-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium pb-[18px] border-b-2 transition-colors ${
-                link.active ? "text-black border-black" : "text-gray-500 border-transparent hover:text-black hover:border-black"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={e => { e.preventDefault(); scrollTo(link.href); }}
+                className={`text-sm font-medium pb-[18px] border-b-2 transition-colors ${
+                  isActive ? "text-black border-black" : "text-gray-500 border-transparent hover:text-black hover:border-black"
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="ml-auto flex items-center gap-3">
           <a
             href="#contact"
+            onClick={e => { e.preventDefault(); scrollTo("#contact"); }}
             className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
           >
             Hire Me
-          </a>
-          <a
-            href="#login"
-            className="inline-flex items-center justify-center h-10 px-5 rounded-full border border-black/20 text-sm font-medium text-black hover:bg-black/5 transition-colors"
-          >
-            Login
           </a>
         </div>
 

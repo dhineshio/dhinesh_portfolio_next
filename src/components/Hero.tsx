@@ -2,7 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Image from "next/image";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const logos = [
   { src: "/companies/auctus_logo.png", alt: "Auctus" },
@@ -18,6 +21,8 @@ const logos = [
   { src: "/companies/a11y_digitech_logo.png", alt: "A11Y Digitech" },
   { src: "/companies/tastenow_logo.png", alt: "TasteNow" },
   { src: "/companies/skillup_languages_logo.png", alt: "Skillup Languages" },
+  { src: "/companies/gloup_logo.png", alt: "Gloup" },
+  { src: "/companies/agamagizh_logo.png", alt: "Agamagizh" },
 ];
 
 export default function Hero() {
@@ -47,22 +52,29 @@ export default function Hero() {
     };
   }, []);
 
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("contact");
+    if (!el) return;
+    gsap.to(window, { scrollTo: { y: el, offsetY: 64 }, duration: 0.9, ease: "power3.inOut" });
+  };
+
   return (
-    <section className="grid-lines mt-0 flex flex-col items-center justify-center px-6 py-24">
+    <section id="home" className="grid-lines mt-0 flex flex-col items-center justify-center px-6 py-24">
 
       {/* Heading */}
       <div className="text-center max-w-5xl mx-auto mt-0">
-        <h1 className="text-2xl sm:text-5xl mt-8 lg:text-[64px] font-semibold lg:leading-[70px] lg:tracking-[-3px] text-center text-[#1a1a1a]">
-          Fast, scalable & beautifully<br />
-          crafted digital products.
+        <h1 className="text-4xl sm:text-5xl mt-8 lg:text-[64px] font-semibold lg:leading-[70px] lg:tracking-[-3px] text-center text-[#1a1a1a]">
+          I design, build & deploy<br />
+          digital products end-to-end.
         </h1>
-        <p className="mt-6 text-sm sm:text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-          Full-stack freelancer · Web · Mobile · AWS · Server management.
+        <p className="mt-6 text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          Full-stack freelancer available for web, mobile & cloud projects worldwide.
         </p>
       </div>
 
       {/* Logo Marquee */}
-      <div className="mt-12 w-full max-w-xl mx-auto">
+      <div className="mt-16 w-full max-w-xl mx-auto">
         <p className="text-xs text-gray-400 text-center mb-6 tracking-widest uppercase">
           Worked on projects for
         </p>
@@ -85,19 +97,18 @@ export default function Hero() {
       </div>
 
       {/* CTA Banner */}
-      <div className="mt-26 w-full max-w-xl mx-auto">
-        <div className="flex items-center justify-between gap-4 bg-white rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.18)] px-6 py-4">
-          <p className="text-sm font-medium text-[#1a1a1a] leading-snug">
-            Available for freelance &amp; full-time<br className="hidden sm:block" /> opportunities worldwide
+      <div className="mt-16 w-full max-w-lg mx-auto px-2 sm:px-0">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white rounded-3xl sm:rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.18)] px-6 py-5 sm:py-3.5">
+          <p className="text-sm font-medium text-[#1a1a1a] leading-snug text-center sm:text-left">
+            Available for freelance &amp; full-time opportunities worldwide
           </p>
-          <div className="flex items-center gap-3 shrink-0">
-            <a
-              href="#contact"
-              className="ml-2 inline-flex items-center justify-center h-10 px-5 rounded-full bg-[#0f0f0f] text-white text-sm font-semibold hover:bg-neutral-800 transition-colors whitespace-nowrap"
-            >
-              Hire Me
-            </a>
-          </div>
+          <a
+            href="#contact"
+            onClick={scrollToContact}
+            className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-[#0f0f0f] text-white text-sm font-semibold hover:bg-neutral-800 transition-colors whitespace-nowrap shrink-0"
+          >
+            Hire Me
+          </a>
         </div>
       </div>
 

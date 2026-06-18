@@ -37,6 +37,7 @@ export default function About() {
               </a>
               <a
                 href="mailto:dhinesh.tech2001@gmail.com"
+                target="_blank"
                 className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-black/5 shadow-sm rounded-lg px-3 py-2 text-[#1a1a1a] hover:bg-white transition-colors"
               >
                 <Mail size={13} />
