@@ -62,7 +62,7 @@ export default function Hero() {
       </div>
 
       {/* Logo Marquee */}
-      <div className="mt-16 w-full max-w-2xl mx-auto">
+      <div className="mt-16 w-full max-w-xl mx-auto">
         <p className="text-xs text-gray-400 text-center mb-6 tracking-widest uppercase">
           Worked on projects for
         </p>
