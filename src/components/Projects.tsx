@@ -187,7 +187,7 @@ const PROJECTS: Project[] = [
     description:
       "Mobile app for government staff attendance management — built for the Greater Chennai Corporation to streamline daily attendance tracking and reporting.",
     url: "https://play.google.com/store/apps/details?id=com.m7corp.gccPhdAttendanceApp&pcampaignid=web_share",
-    screenshot: "/projects/gcc-mobile",
+    screenshot: "/projects/gcc-mobile.webp",
     logo: "/companies/gcc_logo.webp",
     techStack: ["flutter", "dart"],
   },
