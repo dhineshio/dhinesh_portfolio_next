@@ -52,7 +52,7 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
   const hasEntered = useRef(false);
 
@@ -74,13 +74,22 @@ export default function Contact() {
     return () => trigger.kill();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.open(`mailto:dhinesh.tech2001@gmail.com?subject=${subject}&body=${body}`);
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setStatus("sending");
+    try {
+      await fetch(process.env.NEXT_PUBLIC_SHEET_URL!, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({ name, email, message }),
+      });
+      setStatus("sent");
+      setName(""); setEmail(""); setMessage("");
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -158,9 +167,13 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 w-full bg-white text-[#141414] text-sm font-bold rounded-lg py-3.5 hover:bg-neutral-100 transition-colors"
+              disabled={status === "sending"}
+              className="flex items-center justify-center gap-2 w-full bg-white text-[#141414] text-sm font-bold rounded-lg py-3.5 hover:bg-neutral-100 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {sent ? "✓ Message Sent!" : <>Send Message <ArrowUpRight size={15} /></>}
+              {status === "sending" && "Sending…"}
+              {status === "sent"    && "✓ Message Sent!"}
+              {status === "error"   && "Failed — try again"}
+              {status === "idle"    && <><span>Send Message</span><ArrowUpRight size={15} /></>}
             </button>
           </form>
 
