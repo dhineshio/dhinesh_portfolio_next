@@ -8,21 +8,21 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollToPlugin);
 
 const logos = [
-  { src: "/companies/auctus_logo.png", alt: "Auctus" },
-  { src: "/companies/koko_farms_logo.png", alt: "Koko Farms" },
-  { src: "/companies/hita_logo.png", alt: "Hita" },
-  { src: "/companies/rims_logo.png", alt: "RIMS" },
-  { src: "/companies/topgrade_logo.png", alt: "Topgrade" },
-  { src: "/companies/thaagam_logo.png", alt: "Thaagam" },
-  { src: "/companies/gcc_logo.png", alt: "GCC" },
-  { src: "/companies/five_flow_logo.png", alt: "Five Flow" },
-  { src: "/companies/sri_karpom_karpipom_logo.png", alt: "Sri Karpom Karpipom" },
-  { src: "/companies/rvr_logo.png", alt: "RVR" },
-  { src: "/companies/a11y_digitech_logo.png", alt: "A11Y Digitech" },
-  { src: "/companies/tastenow_logo.png", alt: "TasteNow" },
-  { src: "/companies/skillup_languages_logo.png", alt: "Skillup Languages" },
-  { src: "/companies/gloup_logo.png", alt: "Gloup" },
-  { src: "/companies/agamagizh_logo.png", alt: "Agamagizh" },
+  { src: "/companies/auctus_logo.webp", alt: "Auctus" },
+  { src: "/companies/koko_farms_logo.webp", alt: "Koko Farms" },
+  { src: "/companies/hita_logo.webp", alt: "Hita" },
+  { src: "/companies/rims_logo.webp", alt: "RIMS" },
+  { src: "/companies/topgrade_logo.webp", alt: "Topgrade" },
+  { src: "/companies/thaagam_logo.webp", alt: "Thaagam" },
+  { src: "/companies/gcc_logo.webp", alt: "GCC" },
+  { src: "/companies/five_flow_logo.webp", alt: "Five Flow" },
+  { src: "/companies/sri_karpom_karpipom_logo.webp", alt: "Sri Karpom Karpipom" },
+  { src: "/companies/rvr_logo.webp", alt: "RVR" },
+  { src: "/companies/a11y_digitech_logo.webp", alt: "A11Y Digitech" },
+  { src: "/companies/tastenow_logo.webp", alt: "TasteNow" },
+  { src: "/companies/skillup_languages_logo.webp", alt: "Skillup Languages" },
+  { src: "/companies/gloup_logo.webp", alt: "Gloup" },
+  { src: "/companies/agamagizh_logo.webp", alt: "Agamagizh" },
 ];
 
 export default function Hero() {

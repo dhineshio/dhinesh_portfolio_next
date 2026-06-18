@@ -7,17 +7,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const FILTERS = ["All", "Websites", "Mobile App", "Portals", "Products"];
 
 const TECH_ICONS: Record<string, string> = {
-  html:       "/icons/ic_html.png",
-  css:        "/icons/ic_css.png",
-  js:         "/icons/ic_js.png",
-  typescript: "/icons/ic_ts.png",
-  bootstrap:  "/icons/ic_bootstrap.png",
-  tailwind:   "/icons/ic_tailwind.png",
-  nextjs:     "/icons/ic_nextjs.png",
-  flutter:    "/icons/ic_flutter.png",
-  dart:       "/icons/ic_dart.png",
-  python:     "/icons/ic_python.png",
-  django:     "/icons/ic_django.png",
+  html:       "/icons/ic_html.webp",
+  css:        "/icons/ic_css.webp",
+  js:         "/icons/ic_js.webp",
+  typescript: "/icons/ic_ts.webp",
+  bootstrap:  "/icons/ic_bootstrap.webp",
+  tailwind:   "/icons/ic_tailwind.webp",
+  nextjs:     "/icons/ic_nextjs.webp",
+  flutter:    "/icons/ic_flutter.webp",
+  dart:       "/icons/ic_dart.webp",
+  python:     "/icons/ic_python.webp",
+  django:     "/icons/ic_django.webp",
 };
 
 const TECH_LABELS: Record<string, string> = {
@@ -55,8 +55,8 @@ const PROJECTS: Project[] = [
     description:
       "Built with SEO optimization and a dynamic UI fully manageable through a custom admin panel — content, sections, and visuals update without code changes.",
     url: "https://fiveflowinfra.com/",
-    screenshot: "/projects/fiveflow-screen.png",
-    logo: "/companies/five_flow_logo.png",
+    screenshot: "/projects/fiveflow-screen.webp",
+    logo: "/companies/five_flow_logo.webp",
     techStack: ["html", "css", "js", "bootstrap"],
   },
   {
@@ -67,8 +67,8 @@ const PROJECTS: Project[] = [
     description:
       "Static website for a language learning institute offering English and Hindi courses, built for performance and SEO.",
     url: "https://www.skilluplanguages.com/",
-    screenshot: "/projects/skillup-languages-screen.png",
-    logo: "/companies/skillup_languages_logo.png",
+    screenshot: "/projects/skillup-languages-screen.webp",
+    logo: "/companies/skillup_languages_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript"],
   },
   {
@@ -79,8 +79,8 @@ const PROJECTS: Project[] = [
     description:
       "Landing page for an e-learning platform built to drive course enrollments with a clean, conversion-focused design.",
     url: "https://www.topgradeinnovation.com/",
-    screenshot: "/projects/topgrade-screen.png",
-    logo: "/companies/topgrade_logo.png",
+    screenshot: "/projects/topgrade-screen.webp",
+    logo: "/companies/topgrade_logo.webp",
     techStack: ["html", "css", "tailwind", "js"],
   },
   {
@@ -91,8 +91,8 @@ const PROJECTS: Project[] = [
     description:
       "Static website for a Tamil language teaching institute for children, showcasing courses and enrollment details.",
     url: "https://srikarpomkarpipom.com/",
-    screenshot: "/projects/sri-karpom-karpipom-screen.png",
-    logo: "/companies/sri_karpom_karpipom_logo.png",
+    screenshot: "/projects/sri-karpom-karpipom-screen.webp",
+    logo: "/companies/sri_karpom_karpipom_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript"],
   },
   {
@@ -103,8 +103,8 @@ const PROJECTS: Project[] = [
     description:
       "Official website for RIMS Faculty of Nursing with course details, admissions, and college information.",
     url: "https://www.rimsedu.in/",
-    screenshot: "/projects/rims-screen.png",
-    logo: "/companies/rims_logo.png",
+    screenshot: "/projects/rims-screen.webp",
+    logo: "/companies/rims_logo.webp",
     techStack: ["html", "css", "js", "bootstrap"],
   },
   {
@@ -115,8 +115,8 @@ const PROJECTS: Project[] = [
     description:
       "Full-scale ERP built from scratch — staff management, accounts, clients, lead tracking, and real-time WebSocket chat, all in one platform.",
     url: "https://pm.rvrengineering.com/",
-    screenshot: "/projects/rvr-engineering-portal.png",
-    logo: "/companies/rvr_logo.png",
+    screenshot: "/projects/rvr-engineering-portal.webp",
+    logo: "/companies/rvr_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript", "python", "django"],
   },
   {
@@ -127,8 +127,8 @@ const PROJECTS: Project[] = [
     description:
       "AI product that automatically generates accurate alt text for images, improving web accessibility and SEO for publishers.",
     url: "https://alt.a11ydigitech.com/",
-    screenshot: "/projects/a11yalt-product.png",
-    logo: "/companies/a11y_digitech_logo.png",
+    screenshot: "/projects/a11yalt-product.webp",
+    logo: "/companies/a11y_digitech_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript", "python", "django"],
   },
   {
@@ -139,8 +139,8 @@ const PROJECTS: Project[] = [
     description:
       "Mobile app for the Top Grade e-learning platform — students can access courses, track progress, and learn on the go.",
     url: "https://play.google.com/store/apps/details?id=com.topgrade.app&pcampaignid=web_share",
-    screenshot: "/projects/topgrade-mobile.png",
-    logo: "/companies/topgrade_logo.png",
+    screenshot: "/projects/topgrade-mobile.webp",
+    logo: "/companies/topgrade_logo.webp",
     techStack: ["flutter", "dart"],
   },
   {
@@ -151,8 +151,8 @@ const PROJECTS: Project[] = [
     description:
       "Large-scale subdomain-based management portal covering student records, admissions, faculty, and college operations end-to-end.",
     url: "https://admin.rimsedu.in/",
-    screenshot: "/projects/rims-admin.png",
-    logo: "/companies/rims_logo.png",
+    screenshot: "/projects/rims-admin.webp",
+    logo: "/companies/rims_logo.webp",
     techStack: ["html", "css", "js", "python", "django"],
   },
   {
@@ -163,8 +163,8 @@ const PROJECTS: Project[] = [
     description:
       "Full e-commerce website for a home decor brand with product listings, cart, and order flow.",
     url: "https://hitadecor.com/",
-    screenshot: "/projects/hita-screen.png",
-    logo: "/companies/hita_logo.png",
+    screenshot: "/projects/hita-screen.webp",
+    logo: "/companies/hita_logo.webp",
     techStack: ["html", "css", "bootstrap", "js"],
   },
   {
@@ -175,8 +175,8 @@ const PROJECTS: Project[] = [
     description:
       "Full LMS portal — course video uploads, student management, progress stats, and automated certificate distribution.",
     url: "https://www.topgradeinnovation.com/dashboard/signin/",
-    screenshot: "/projects/topgrade-admin.png",
-    logo: "/companies/topgrade_logo.png",
+    screenshot: "/projects/topgrade-admin.webp",
+    logo: "/companies/topgrade_logo.webp",
     techStack: ["html", "css", "js", "bootstrap", "python", "django"],
   },
   {
@@ -188,7 +188,7 @@ const PROJECTS: Project[] = [
       "Mobile app for government staff attendance management — built for the Greater Chennai Corporation to streamline daily attendance tracking and reporting.",
     url: "https://play.google.com/store/apps/details?id=com.m7corp.gccPhdAttendanceApp&pcampaignid=web_share",
     screenshot: "/projects/gcc-mobile",
-    logo: "/companies/gcc_logo.png",
+    logo: "/companies/gcc_logo.webp",
     techStack: ["flutter", "dart"],
   },
   {
@@ -199,8 +199,8 @@ const PROJECTS: Project[] = [
     description:
       "SEO-optimized professional website for a software company with a dynamic content structure managed through a custom backend.",
     url: "https://www.auctustechnologies.com/",
-    screenshot: "/projects/auctus-screen.png",
-    logo: "/companies/auctus_logo.png",
+    screenshot: "/projects/auctus-screen.webp",
+    logo: "/companies/auctus_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript"],
   },
   {
@@ -211,8 +211,8 @@ const PROJECTS: Project[] = [
     description:
       "Custom admin dashboard to manage website content, sections, and media — giving the client full control without touching code.",
     url: "https://fiveflowinfra.com/dashboard/signin/",
-    screenshot: "/projects/fiveflow-admin-screen.png",
-    logo: "/companies/five_flow_logo.png",
+    screenshot: "/projects/fiveflow-admin-screen.webp",
+    logo: "/companies/five_flow_logo.webp",
     techStack: ["html", "css", "js", "bootstrap", "python", "django"],
   },
   {
@@ -223,8 +223,8 @@ const PROJECTS: Project[] = [
     description:
       "Complete admin portal for Hita Decor — product management, order tracking, sales stats, and full store control in one dashboard.",
     url: "https://hitadecor.com/login/",
-    screenshot: "/projects/hita-admin.png",
-    logo: "/companies/hita_logo.png",
+    screenshot: "/projects/hita-admin.webp",
+    logo: "/companies/hita_logo.webp",
     techStack: ["html", "css", "js", "bootstrap", "python", "django"],
   },
   {
@@ -235,8 +235,8 @@ const PROJECTS: Project[] = [
     description:
       "Static website for an accessibility-focused e-publishing company, built for performance and clarity.",
     url: "https://www.a11ydigitech.com/",
-    screenshot: "/projects/a11ydigitech-screen.png",
-    logo: "/companies/a11y_digitech_logo.png",
+    screenshot: "/projects/a11ydigitech-screen.webp",
+    logo: "/companies/a11y_digitech_logo.webp",
     techStack: ["html", "css", "js"],
   },
   {
@@ -247,8 +247,8 @@ const PROJECTS: Project[] = [
     description:
       "SEO-optimized static website for an NGO, built for visibility and outreach with clean, accessible design.",
     url: "https://www.agamagizhtrust.com/",
-    screenshot: "/projects/agamagizh-screen.png",
-    logo: "/companies/agamagizh_logo.png",
+    screenshot: "/projects/agamagizh-screen.webp",
+    logo: "/companies/agamagizh_logo.webp",
     techStack: ["nextjs", "tailwind", "typescript"],
   },
   {
@@ -259,8 +259,8 @@ const PROJECTS: Project[] = [
     description:
       "Mobile app for booking salon appointments — users can browse salons, pick services, and schedule visits with ease.",
     url: "https://play.google.com/store/apps/details?id=com.gloup.userapp&pcampaignid=web_share",
-    screenshot: "/projects/gloup-mobile.png",
-    logo: "/companies/gloup_logo.png",
+    screenshot: "/projects/gloup-mobile.webp",
+    logo: "/companies/gloup_logo.webp",
     techStack: ["flutter", "dart"],
   },
 ];

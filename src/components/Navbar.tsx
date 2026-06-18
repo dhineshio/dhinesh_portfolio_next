@@ -101,7 +101,7 @@ export default function Navbar() {
           {open ? <X size={24} strokeWidth={1.75} /> : <Menu size={24} strokeWidth={1.75} />}
         </button>
 
-        <Image src="/logo.png" alt="Logo" width={36} height={36} className="ml-3" />
+        <Image src="/logo.webp" alt="Logo" width={36} height={36} className="ml-3" />
 
         <a
           href="#contact"
@@ -136,7 +136,7 @@ export default function Navbar() {
       {/* Desktop */}
       <div className="hidden lg:flex items-center h-16 max-w-7xl mx-auto w-full gap-8">
 
-        <Image src="/logo.png" alt="Logo" width={36} height={36} />
+        <Image src="/logo.webp" alt="Logo" width={36} height={36} />
 
         <div className="flex items-end gap-10 h-full ml-6">
           {navLinks.map((link) => {

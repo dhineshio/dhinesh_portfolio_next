@@ -7,36 +7,36 @@ const CATEGORIES = [
   {
     label: "Frontend",
     techs: [
-      { name: "Next.js",      icon: "/icons/ic_nextjs.png" },
-      { name: "TypeScript",   icon: "/icons/ic_ts.png" },
-      { name: "Tailwind CSS", icon: "/icons/ic_tailwind.png" },
-      { name: "JavaScript",   icon: "/icons/ic_js.png" },
-      { name: "HTML",         icon: "/icons/ic_html.png" },
-      { name: "CSS",          icon: "/icons/ic_css.png" },
-      { name: "Bootstrap",    icon: "/icons/ic_bootstrap.png" },
+      { name: "Next.js",      icon: "/icons/ic_nextjs.webp" },
+      { name: "TypeScript",   icon: "/icons/ic_ts.webp" },
+      { name: "Tailwind CSS", icon: "/icons/ic_tailwind.webp" },
+      { name: "JavaScript",   icon: "/icons/ic_js.webp" },
+      { name: "HTML",         icon: "/icons/ic_html.webp" },
+      { name: "CSS",          icon: "/icons/ic_css.webp" },
+      { name: "Bootstrap",    icon: "/icons/ic_bootstrap.webp" },
     ],
   },
   {
     label: "Mobile",
     techs: [
-      { name: "Flutter", icon: "/icons/ic_flutter.png" },
-      { name: "Dart",    icon: "/icons/ic_dart.png" },
+      { name: "Flutter", icon: "/icons/ic_flutter.webp" },
+      { name: "Dart",    icon: "/icons/ic_dart.webp" },
     ],
   },
   {
     label: "Backend",
     techs: [
-      { name: "Python",  icon: "/icons/ic_python.png" },
-      { name: "Django",  icon: "/icons/ic_django.png" },
+      { name: "Python",  icon: "/icons/ic_python.webp" },
+      { name: "Django",  icon: "/icons/ic_django.webp" },
     ],
   },
   {
     label: "Tools & Infra",
     techs: [
-      { name: "AWS",        icon: "/icons/ic_aws.png" },
-      { name: "Git",        icon: "/icons/ic_git.png" },
-      { name: "PostgreSQL", icon: "/icons/ic_postgresql.png" },
-      { name: "Figma",      icon: "/icons/ic_figma.png" },
+      { name: "AWS",        icon: "/icons/ic_aws.webp" },
+      { name: "Git",        icon: "/icons/ic_git.webp" },
+      { name: "PostgreSQL", icon: "/icons/ic_postgresql.webp" },
+      { name: "Figma",      icon: "/icons/ic_figma.webp" },
     ],
   },
 ];

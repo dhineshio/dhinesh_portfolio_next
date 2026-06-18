@@ -49,7 +49,7 @@ export default function About() {
               position={[0, 0, 13]}
               gravity={[0, -40, 0]}
               lanyardWidth={1.2}
-              frontImage="/lanyard/id_card.png"
+              frontImage="/lanyard/id_card.webp"
               imageFit="contain"
             />
           </div>
