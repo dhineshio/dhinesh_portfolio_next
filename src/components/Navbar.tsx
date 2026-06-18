@@ -47,7 +47,7 @@ const toggleMenu = () => {
     <nav className="fixed inset-x-0 top-0 z-[1000] w-full bg-white/80 backdrop-blur-[5px] shadow-[0_1px_1px_#e7e7e9] 2xl:pt-[10px]">
 
       {/* Mobile / Tablet */}
-      <div className="flex lg:hidden items-center h-16 px-6">
+      <div className="flex lg:hidden items-center h-16 px-2">
         <button aria-label="Toggle menu" className="p-1" onClick={toggleMenu}>
           {open ? <X size={24} strokeWidth={1.75} /> : <Menu size={24} strokeWidth={1.75} />}
         </button>
@@ -92,7 +92,7 @@ const toggleMenu = () => {
       </div>
 
       {/* Desktop */}
-      <div className="hidden lg:flex items-center h-16 px-6 max-w-7xl mx-auto w-full gap-8">
+      <div className="hidden lg:flex items-center h-16 max-w-7xl mx-auto w-full gap-8">
 
         <Image src="/logo.png" alt="Logo" width={36} height={36} />
 

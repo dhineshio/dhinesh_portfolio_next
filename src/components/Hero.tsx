@@ -48,11 +48,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="grid-lines mt-0 flex flex-col items-center justify-center px-6 py-20">
+    <section className="grid-lines mt-0 flex flex-col items-center justify-center px-6 py-24">
 
       {/* Heading */}
       <div className="text-center max-w-5xl mx-auto mt-0">
-        <h1 className="text-4xl sm:text-5xl mt-8 lg:text-[64px] font-semibold lg:leading-[70px] lg:tracking-[-3px] text-center text-[#1a1a1a]">
+        <h1 className="text-2xl sm:text-5xl mt-8 lg:text-[64px] font-semibold lg:leading-[70px] lg:tracking-[-3px] text-center text-[#1a1a1a]">
           Fast, scalable & beautifully<br />
           crafted digital products.
         </h1>
@@ -62,7 +62,7 @@ export default function Hero() {
       </div>
 
       {/* Logo Marquee */}
-      <div className="mt-16 w-full max-w-xl mx-auto">
+      <div className="mt-12 w-full max-w-xl mx-auto">
         <p className="text-xs text-gray-400 text-center mb-6 tracking-widest uppercase">
           Worked on projects for
         </p>
