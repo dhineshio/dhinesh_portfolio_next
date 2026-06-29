@@ -1,8 +1,15 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Mail, ChevronDown, ArrowUpRight } from "lucide-react";
+import { Mail, ChevronDown, ArrowUpRight, MessageCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Click-to-chat fallback — most India-based clients prefer WhatsApp over forms.
+const WHATSAPP_NUMBER = "918610360491";
+const EMAIL = "dhinesh.tech2001@gmail.com";
+const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi Dhinesh, I came across your portfolio and I'd like to discuss a project."
+)}`;
 
 const FAQS = [
   {
@@ -33,6 +40,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-neutral-100 last:border-0">
       <button
         onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
         className="w-full flex items-center justify-between gap-4 py-4 text-left group"
       >
         <span className="text-sm font-semibold text-neutral-800 group-hover:text-neutral-900 transition-colors">{q}</span>
@@ -76,9 +84,19 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const sheetUrl = process.env.NEXT_PUBLIC_SHEET_URL;
+
+    // No backend configured — don't fake success. Hand off to email so the lead is never lost.
+    if (!sheetUrl) {
+      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
+        `Project inquiry from ${name || "your site"}`
+      )}&body=${encodeURIComponent(message)}`;
+      return;
+    }
+
     setStatus("sending");
     try {
-      await fetch(process.env.NEXT_PUBLIC_SHEET_URL!, {
+      await fetch(sheetUrl, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify({ name, email, message }),
@@ -175,6 +193,35 @@ export default function Contact() {
               {status === "error"   && "Failed — try again"}
               {status === "idle"    && <><span>Send Message</span><ArrowUpRight size={15} /></>}
             </button>
+
+            {status === "error" && (
+              <p className="text-xs text-red-300/80 -mt-2">
+                Couldn't send just now —{" "}
+                <a href={`mailto:${EMAIL}`} className="underline hover:text-white">email me directly</a> or use WhatsApp below.
+              </p>
+            )}
+
+            {/* Faster channels — preferred by most India-based clients */}
+            <div className="flex items-center gap-3 pt-1">
+              <span className="text-[11px] text-white/40 uppercase tracking-widest shrink-0">Or reach me on</span>
+              <div className="h-px flex-1 bg-white/10" />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-sm font-semibold text-white border border-white/15 rounded-lg py-3 hover:border-white/40 hover:bg-white/[0.04] transition-all"
+              >
+                <MessageCircle size={15} /> WhatsApp
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center justify-center gap-2 text-sm font-semibold text-white border border-white/15 rounded-lg py-3 hover:border-white/40 hover:bg-white/[0.04] transition-all"
+              >
+                <Mail size={15} /> Email
+              </a>
+            </div>
           </form>
 
         </div>
